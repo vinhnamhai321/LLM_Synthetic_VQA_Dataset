@@ -1,0 +1,28 @@
+# Core ML Framework
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# Hugging Face Transformers
+transformers>=4.40.0
+accelerate>=0.27.0
+sentencepiece>=0.1.99
+protobuf>=3.20.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Utilities
+tqdm>=4.65.0
+safetensors>=0.4.0
+
+# Optional but recommended for better performance
+einops>=0.7.0
+tiktoken>=0.5.0
+
+# For model quantization (optional, for memory efficiency)
+bitsandbytes>=0.41.0
+
+# For faster tokenization
+tokenizers>=0.15.0
