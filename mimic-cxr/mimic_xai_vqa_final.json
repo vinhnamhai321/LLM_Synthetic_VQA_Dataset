@@ -1,0 +1,72 @@
+[
+    {
+        "question": "Is there evidence of an acute cardiopulmonary process in the radiology report?",
+        "answer": "no",
+        "explanation": "An acute cardiopulmonary process typically refers to conditions such as pneumonia, pulmonary embolism, or acute heart failure. This report indicates that there is no focal consolidation, pleural effusion, or pneumothorax, which are common indicators of acute pathology. Additionally, the normal cardiomediastinal silhouette suggests that there are no substantial abnormalities in the heart or great vessels. Overall, the absence of these signs supports the conclusion that no acute condition is present.",
+        "image_path": "files/p10/p10000032/s50414267/02aa804e-bde0afdd-112c0b34-7bc16630-4e384014.jpg",
+        "subject_id": 10000032
+    },
+    {
+        "question": "Are there any acute cardiopulmonary abnormalities present?",
+        "answer": "no",
+        "explanation": "In assessing cardiopulmonary health, various factors such as the appearance of the heart, lung fields, vascular structures, and the presence of fluid or air in the pleural spaces are considered. Findings such as normal cardiac contours and clear lungs, along with the absence of pleural effusion or pneumothorax, indicate that the heart and lungs are functioning properly and reflect no signs of acute distress or pathology. Overall, these observations help in concluding that there are no acute cardiopulmonary abnormalities.",
+        "image_path": "files/p10/p10000032/s50414267/174413ec-4ec4c1f7-34ea26b7-c5f994f8-79ef1962.jpg",
+        "subject_id": 10000032
+    },
+    {
+        "question": "Is there evidence of an acute intrathoracic process?",
+        "answer": "no",
+        "explanation": "An acute intrathoracic process typically refers to sudden and significant conditions such as pneumonia, pleural effusion, or pneumothorax. The absence of focal consolidation, effusions, and pneumothorax, along with a normal cardiomediastinal silhouette, suggests stability and no acute pathology present in the thoracic area. Additionally, the presence of remote rib fractures and clips does not indicate an active or acute condition affecting the thoracic organs.",
+        "image_path": "files/p10/p10000032/s53189527/2a2277a9-b0ded155-c0de8eb9-c124d10e-82c5caab.jpg",
+        "subject_id": 10000032
+    },
+    {
+        "question": "Is there evidence of an acute cardiopulmonary process in the chest?",
+        "answer": "no",
+        "explanation": "An acute cardiopulmonary process typically refers to newly developed conditions such as pneumonia, pulmonary embolism, or cardiac complications, which may manifest as focal consolidation in the lungs, pleural effusion, or abnormalities in heart size and mediastinal contours. In this case, the findings indicate clear lungs without focal consolidations or pleural effusions, and the heart size is reported as normal, suggesting no immediate concern for such acute events.",
+        "image_path": "files/p10/p10000032/s53189527/e084de3b-be89b11e-20fe3f9f-9c8d8dfe-4cfd202c.jpg",
+        "subject_id": 10000032
+    },
+    {
+        "question": "Is there evidence of an acute cardiopulmonary process in the findings?",
+        "answer": "no",
+        "explanation": "An acute cardiopulmonary process typically refers to conditions that arise suddenly and can include events such as pneumonia, pulmonary embolism, or exacerbations of chronic disease. The absence of focal consolidation, pleural effusions, or pneumothorax suggests that there is no immediate pulmonary infection or fluid accumulation. Furthermore, a normal cardiomediastinal silhouette indicates that the heart and major blood vessels are within normal limits, pointing to a stable state without acute distress.",
+        "image_path": "files/p10/p10000032/s53911762/68b5c4b1-227d0485-9cc38c3f-7b84ab51-4b472714.jpg",
+        "subject_id": 10000032
+    },
+    {
+        "question": "Is there an acute cardiopulmonary process present?",
+        "answer": "no",
+        "explanation": "In the context of radiology, the absence of focal consolidation, pleural effusion, and pneumothorax indicates that there are no acute pathological changes involving the lungs or pleura. The presence of bilateral nodular opacities that likely represent non-pathological features, such as nipple shadows, further supports that there is no significant lung pathology. A normal cardiomediastinal silhouette is also indicative of a stable heart and major vessels without signs of acute distress or disease. Therefore, the impression of no acute cardiopulmonary process is consistent with these findings.",
+        "image_path": "files/p10/p10000032/s53911762/fffabebf-74fd3a1f-673b6b41-96ec0ac9-2ab69818.jpg",
+        "subject_id": 10000032
+    },
+    {
+        "question": "Is there an acute cardiopulmonary process observed in the findings?",
+        "answer": "no",
+        "explanation": "The absence of focal consolidation, pleural effusion, or pneumothorax, along with a normal cardiomediastinal silhouette, suggests that there are no acute changes affecting the lungs or the heart. Additionally, the presence of chronic rib deformities does not indicate an acute process, reinforcing the conclusion that the patient is not experiencing an urgent cardiopulmonary issue.",
+        "image_path": "files/p10/p10000032/s56699142/ea030e7a-2e3b1346-bc518786-7a8fd698-f673b44c.jpg",
+        "subject_id": 10000032
+    },
+    {
+        "question": "Is the focal consolidation at the left lung base likely due to pneumonia?",
+        "answer": "yes",
+        "explanation": "Focal consolidation in the lung typically indicates an area of lung tissue that has become filled with liquid instead of air, which can occur due to infections such as pneumonia. In cases where the consolidation is adjacent to the diaphragm, aspiration pneumonia is a possible cause, especially if there is a history of risk factors such as swallowing difficulties, altered consciousness, or other conditions that predispose to aspiration. The presence of vascular engorgement may also suggest inflammation or infection, further supporting the likelihood of pneumonia.",
+        "image_path": "files/p10/p10000764/s57375967/096052b7-d256dc40-453a102b-fa7d01c6-1b22c6b4.jpg",
+        "subject_id": 10000764
+    },
+    {
+        "question": "Is the focal consolidation at the left lung base indicative of pneumonia?",
+        "answer": "unknown",
+        "explanation": "Focal consolidation in the lung can result from various conditions, including infection (like pneumonia), aspiration, or inflammatory processes. While pneumonia is a common cause of consolidation, other factors such as aspiration of fluids or foreign material can also lead to similar findings. A definitive diagnosis typically requires additional clinical correlation, such as patient symptoms, lab results, and possibly further imaging studies to ascertain the underlying cause.",
+        "image_path": "files/p10/p10000764/s57375967/b79e55c3-735ce5ac-64412506-cdc9ea79-f1af521f.jpg",
+        "subject_id": 10000764
+    },
+    {
+        "question": "Is the focal consolidation at the left lung base likely indicative of pneumonia?",
+        "answer": "yes",
+        "explanation": "Focal consolidation in the lungs is a common radiological finding that may indicate pneumonia, especially when associated with symptoms of respiratory illness. It typically occurs when alveoli are filled with fluid or solid materials, which may happen due to infection, aspiration, or other inflammatory processes. The presence of mild vascular engorgement further supports the likelihood of an infectious or inflammatory condition, as this can result from increased blood flow to the affected area as part of the body's immune response. Therefore, the observed consolidation in this case raises a significant suspicion for pneumonia.",
+        "image_path": "files/p10/p10000764/s57375967/dcfeeac4-1597e318-d0e6736a-8b2c2238-47ac3f1b.jpg",
+        "subject_id": 10000764
+    }
+]

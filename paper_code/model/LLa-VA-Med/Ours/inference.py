@@ -5,11 +5,22 @@ from transformers import LlavaForConditionalGeneration, AutoProcessor, AutoToken
 from huggingface_hub import hf_hub_download
 from PIL import Image
 
+def load_image_from_directory(directory: str):
+    valid_extensions = ('.png', '.jpg', '.jpeg', '.bmp', '.gif', '.tiff')
+    images = []
+    for file_name in os.listdir(directory):
+        if file_name.lower().endswith(valid_extensions):
+            file_path = os.path.join(directory,file_name)
+            try:
+                image = Image.open(file_path)
+                images.append(image)
+            except Exception as e:
+                print(f"Skip image {file_name}: {e}")
+    return images
+            
 # Load image
-image_list = [
-    Image.open("normal-chest-x-ray.png"),
-    Image.open("abnormal-chest-x-ray.jpg"),
-]
+directory = ""
+images = load_image_from_directory(directory)
 
 sample_image = Image.open("abnormal-chest-x-ray.jpg")
 
@@ -38,7 +49,7 @@ messages = [
             {"type":"text",
             "text":questions[i]}
         ]
-    } for i,_ in enumerate(image_list)
+    } for i,_ in enumerate(images)
     ]
 ]
 message = [

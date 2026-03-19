@@ -76,13 +76,15 @@ def convert_to_llava_format(data_path,output_path,dataset_directory):
         json.dump(llava_data,f, indent=2)             
         
 if __name__ == "__main__":
-    data_path = "./data_v1.json"
-    output_path = "./data_v2.json"
-    dataset_directory = "/home/jovyan/network-volume/nnthao16/paper_code/LLM-Synth-Data/deepseek/official_data_iccv_final/"
-    convert_to_llava_format(data_path,output_path,dataset_directory)
+    data_path = "/home/jovyan/network-volume/nnthao16/paper_code/dataset/mimic-cxr/data_v4.json"
+    output_path = "/home/jovyan/network-volume/nnthao16/paper_code/dataset/mimic-cxr/data_v5.json"
+    dataset_directory = "/home/jovyan/mimic-cxr/"
+
     
      # Merge duplicate entries
 #     merge_mimic_cxr(data_path,output_path)
 
     # Merge duplicate image_paths
 #     merge_image_paths(data_path,output_path)
+
+    convert_to_llava_format(data_path,output_path,dataset_directory)

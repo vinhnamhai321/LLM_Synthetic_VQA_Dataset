@@ -1,0 +1,58 @@
+[
+    {
+        "question": "Are there any signs of acute cardiac or pulmonary pathology?",
+        "answer": "No",
+        "explanation": "The radiology report states that there is no focal consolidation, pleural effusion, pneumothorax, bilateral nodular opacities, clips projecting from the left lung, chronic deformity of the posterior left sixth and seventh ribs, and no mention of an acute process.",
+        "report_index": 0,
+        "subject_id": 10000032,
+        "original_text": "Findings: There is no focal consolidation, pleural effusion or pneumothorax.  Bilateral nodular opacities that most likely represent nipple shadows. The cardiomediastinal silhouette is normal.  Clips project over the left lung, potentially within the breast. The imaged upper abdomen is unremarkable. Chronic deformity of the posterior left sixth and seventh ribs are noted. Impression: No acute cardiopulmonary process."
+    },
+    {
+        "question": "",
+        "answer": "Unknown",
+        "explanation": "The report does not provide any specific information about a clinical question that can be answered with certainty.",
+        "report_index": 1,
+        "subject_id": 10000032,
+        "original_text": "Findings: The cardiac, mediastinal and hilar contours are normal. Pulmonary vasculature is normal.  Lungs are clear. No pleural effusion or pneumothorax is present. Multiple clips are again seen projecting over the left breast.  Remote left-sided rib fractures are also re- demonstrated. Impression: No acute cardiopulmonary abnormality."
+    },
+    {
+        "question": "Are there any signs of acute intrathoracic process?",
+        "answer": "No",
+        "explanation": "The radiology report states that the chest provides a single frontal view without any focal consolidation, effusion, or pneumothorax. Additionally, the cardiac silhouette is normal, and there are no remote left-sided rib fractures or free air below the right hemidiaphragm. Therefore, it can be concluded that there are no signs of an acute intrathoracic process.",
+        "report_index": 2,
+        "subject_id": 10000032,
+        "original_text": "Findings: Single frontal view of the chest provided.  There is no focal consolidation, effusion, or pneumothorax. The cardiomediastinal silhouette is normal.  Again seen are multiple clips projecting over the left breast and remote left-sided rib fractures.  No free air below the right hemidiaphragm is seen. Impression: No acute intrathoracic process."
+    },
+    {
+        "question": "What is the impression regarding any acute cardiopulmonary processes?",
+        "answer": "No",
+        "explanation": "The radiology report indicates that there is no acute condition affecting the heart or lungs. The presence of multiple surgical clips over the left breast and old left rib fractures suggest previous trauma to these areas.",
+        "report_index": 3,
+        "subject_id": 10000032,
+        "original_text": "Findings: The lungs are clear of focal consolidation, pleural effusion or pneumothorax.  The heart size is normal.  The mediastinal contours are normal. Multiple surgical clips project over the left breast, and old left rib fractures are noted. Impression: No acute cardiopulmonary process."
+    },
+    {
+        "question": "Is there any possibility of aspiration or pneumonia?",
+        "answer": "Yes",
+        "explanation": "The radiology report mentions a focal consolidation at the left lung base that could represent aspiration or pneumonia.",
+        "report_index": 0,
+        "subject_id": 10000764,
+        "original_text": "Findings: PA and lateral views of the chest provided.   The lungs are adequately aerated.  There is a focal consolidation at the left lung base adjacent to the lateral hemidiaphragm. There is mild vascular engorgement. There is bilateral apical pleural thickening.  The cardiomediastinal silhouette is remarkable for aortic arch calcifications. The heart is top normal in size. Impression: Focal consolidation at the left lung base, possibly representing aspiration or pneumonia.  Central vascular engorgement."
+    },
+    {
+        "question": "",
+        "answer": "Unknown",
+        "explanation": "No acute intrathoracic process was found.",
+        "report_index": 0,
+        "subject_id": 10000898,
+        "original_text": "Findings: PA and lateral views of the chest provided.   Lung volumes are somewhat low. There is no focal consolidation, effusion, or pneumothorax. The cardiomediastinal silhouette is normal. Imaged osseous structures are intact.  No free air below the right hemidiaphragm is seen. Impression: No acute intrathoracic process."
+    },
+    {
+        "question": "",
+        "answer": "No",
+        "explanation": "The patient's condition appears stable based on the current radiology report, which does not indicate any acute cardiac or pulmonary issues.",
+        "report_index": 1,
+        "subject_id": 10000898,
+        "original_text": "Findings: As compared to the prior examination dated ___, there has been no significant interval change. There is no evidence of focal consolidation, pleural effusion, pneumothorax, or frank pulmonary edema.  The cardiomediastinal silhouette is within normal limits.  There is persistent thoracic kyphosis with mild wedging of a mid thoracic vertebral body. Impression: No evidence of acute cardiopulmonary process."
+    }
+]
