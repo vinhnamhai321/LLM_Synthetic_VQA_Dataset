@@ -213,13 +213,3 @@ paper_code/LLM-Synth-Data
 LLM_Synthetic_VQA_Dataset/
 
 # === AUTO-IGNORED LARGE FILES ===
-mimic-cxr/mimic_cxr_aug_train.csv
-paper_code/model/LLa-VA-Med/LLaVA-Med-1.0.0/data/2023-05-10_finetune_postprocess_caption_cleaned
-paper_code/model/LLa-VA-Med/LLaVA-Med-1.0.0/data/2023-05-10_finetune_postprocess_caption_in_text_cleaned
-paper_code/model/LLa-VA-Med/LLaVA-Med-1.0.0/data/csv/instruct_10K_response_verb_noun.csv
-paper_code/model/LLa-VA-Med/LLaVA-Med-1.0.0/data/csv/instruct_60K_intext_response_verb_noun.csv
-paper_code/model/LLa-VA-Med/LLaVA-Med-1.0.0/data/csv/instruct_60K_response_verb_noun.csv
-paper_code/model/LLa-VA-Med/LLaVA-Med-1.0.0/data/csv/pretrain_response_verb_noun.csv
-paper_code/model/LLa-VA-Med/Ours/checkpoint/checkpoint-9700/adapter_model.safetensors
-paper_code/model/LLa-VA-Med/Ours/checkpoint/checkpoint-9700/non_lora_trainables.bin
-paper_code/model/LLa-VA-Med/Ours/checkpoint/checkpoint-9700/optimizer.pt
