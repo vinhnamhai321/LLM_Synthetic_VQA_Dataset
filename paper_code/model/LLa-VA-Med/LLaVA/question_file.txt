@@ -1,0 +1,5 @@
+What abnormality is present in the chest X-ray?
+Is there any sign of pneumothorax in the image?
+Where is the detected opacity located?
+How many nodules are visible in the lungs?
+Is the heart size enlarged compared to normal?

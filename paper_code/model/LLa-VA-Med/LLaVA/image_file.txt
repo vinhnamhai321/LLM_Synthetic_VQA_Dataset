@@ -1,0 +1,7 @@
+/home/jovyan/network-volume/nnthao16/paper_code/dataset/vqa_rad/VQA_RAD Image Folder/synpic100132.jpg
+/home/jovyan/network-volume/nnthao16/paper_code/dataset/vqa_rad/VQA_RAD Image Folder/synpic100176.jpg
+/home/jovyan/network-volume/nnthao16/paper_code/dataset/vqa_rad/VQA_RAD Image Folder/synpic100228.jpg
+/home/jovyan/network-volume/nnthao16/paper_code/dataset/vqa_rad/VQA_RAD Image Folder/synpic12210.jpg
+/home/jovyan/network-volume/nnthao16/paper_code/dataset/vqa_rad/VQA_RAD Image Folder/synpic13385.jpg
+
+
