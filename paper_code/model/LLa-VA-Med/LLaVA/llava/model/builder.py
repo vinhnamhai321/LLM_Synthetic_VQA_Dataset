@@ -11,8 +11,6 @@
 #    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
-
-
 import os
 import warnings
 import shutil
@@ -20,11 +18,14 @@ import shutil
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig, BitsAndBytesConfig
 import torch
 from llava.model import *
+from llava.model.language_model.llava_mistral import LlavaMistralForCausalLM
 from llava.constants import DEFAULT_IMAGE_PATCH_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
 
-
-def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, load_4bit=False, device_map="auto", device="cuda", use_flash_attn=False, **kwargs):
+def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, load_4bit=False, device_map="auto", device="cuda", use_flash_attn=False, bf16=False, **kwargs):
     kwargs = {"device_map": device_map, **kwargs}
+
+    # 1. Define dynamic compute dtype based on the bf16 flag
+    compute_dtype = torch.bfloat16 if bf16 else torch.float16
 
     if device != "cuda":
         kwargs['device_map'] = {"": device}
@@ -35,12 +36,12 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
         kwargs['load_in_4bit'] = True
         kwargs['quantization_config'] = BitsAndBytesConfig(
             load_in_4bit=True,
-            bnb_4bit_compute_dtype=torch.float16,
+            bnb_4bit_compute_dtype=compute_dtype,
             bnb_4bit_use_double_quant=True,
             bnb_4bit_quant_type='nf4'
         )
     else:
-        kwargs['torch_dtype'] = torch.float16
+        kwargs['torch_dtype'] = compute_dtype
 
     if use_flash_attn:
         kwargs['attn_implementation'] = 'flash_attention_2'
@@ -50,11 +51,20 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
         if 'lora' in model_name.lower() and model_base is None:
             warnings.warn('There is `lora` in model name but no `model_base` is provided. If you are loading a LoRA model, please provide the `model_base` argument. Detailed instruction: https://github.com/haotian-liu/LLaVA#launch-a-model-worker-lora-weights-unmerged.')
         if 'lora' in model_name.lower() and model_base is not None:
-            from llava.model.language_model.llava_llama import LlavaConfig
-            lora_cfg_pretrained = LlavaConfig.from_pretrained(model_path)
             tokenizer = AutoTokenizer.from_pretrained(model_base, use_fast=False)
             print('Loading LLaVA from base model...')
-            model = LlavaLlamaForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=lora_cfg_pretrained, **kwargs)
+            # Explicitly load the custom Config classes from local files to bypass AutoConfig limitations
+            if 'mistral' in model_base.lower() or 'mistral' in model_name.lower():
+                from llava.model.language_model.llava_mistral import LlavaMistralConfig
+                lora_cfg_pretrained = LlavaMistralConfig.from_pretrained(model_base)
+                model = LlavaMistralForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=lora_cfg_pretrained, **kwargs)
+            elif 'mpt' in model_base.lower() or 'mpt' in model_name.lower():
+                lora_cfg_pretrained = AutoConfig.from_pretrained(model_base, trust_remote_code=True)
+                model = LlavaMptForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=lora_cfg_pretrained, **kwargs)
+            else:
+                from llava.model.language_model.llava_llama import LlavaConfig
+                lora_cfg_pretrained = LlavaConfig.from_pretrained(model_base)
+                model = LlavaLlamaForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=lora_cfg_pretrained, **kwargs)
             token_num, tokem_dim = model.lm_head.out_features, model.lm_head.in_features
             if model.lm_head.weight.shape[0] != token_num:
                 model.lm_head.weight = torch.nn.Parameter(torch.empty(token_num, tokem_dim, device=model.device, dtype=model.dtype))
@@ -81,8 +91,14 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
             from peft import PeftModel
             print('Loading LoRA weights...')
             model = PeftModel.from_pretrained(model, model_path)
-            print('Merging LoRA weights...')
-            model = model.merge_and_unload()
+            
+            # 4. Bypass merge_and_unload if the base model is quantized
+            if not load_4bit and not load_8bit:
+                print('Merging LoRA weights...')
+                model = model.merge_and_unload()
+            else:
+                print('Skipping LoRA merge for quantized base model. Adapters will be used during forward passes.')
+                
             print('Model is loaded...')
         elif model_base is not None:
             # this may be mm projector only
@@ -99,7 +115,9 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
                 model = LlavaLlamaForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, config=cfg_pretrained, **kwargs)
 
             mm_projector_weights = torch.load(os.path.join(model_path, 'mm_projector.bin'), map_location='cpu')
-            mm_projector_weights = {k: v.to(torch.float16) for k, v in mm_projector_weights.items()}
+            
+            # 5. Configure mm_projector_weights
+            mm_projector_weights = {k: v.to(compute_dtype) for k, v in mm_projector_weights.items()}
             model.load_state_dict(mm_projector_weights, strict=False)
         else:
             if 'mpt' in model_name.lower():
@@ -128,10 +146,14 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
             model = AutoModelForCausalLM.from_pretrained(model_base, low_cpu_mem_usage=True, **kwargs)
             print(f"Loading LoRA weights from {model_path}")
             model = PeftModel.from_pretrained(model, model_path)
-            print(f"Merging weights")
-            model = model.merge_and_unload()
-            print('Convert to FP16...')
-            model.to(torch.float16)
+            
+            # 6. Bypass merge_and_unload for standard LM if quantized
+            if not load_4bit and not load_8bit:
+                print(f"Merging weights")
+                model = model.merge_and_unload()
+                
+            print(f'Convert to {compute_dtype}...')
+            model.to(compute_dtype)
         else:
             use_fast = False
             if 'mpt' in model_name.lower():
@@ -156,7 +178,7 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
         if not vision_tower.is_loaded:
             vision_tower.load_model(device_map=device_map)
         if device_map != 'auto':
-            vision_tower.to(device=device_map, dtype=torch.float16)
+            vision_tower.to(device=device_map, dtype=compute_dtype)
         image_processor = vision_tower.image_processor
 
     if hasattr(model.config, "max_sequence_length"):

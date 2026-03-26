@@ -42,6 +42,7 @@ def main():
             record = {
                 "question_id": idx,
                 "text": q,
+                "answer": a,
                 "image": img_data
             }
             
