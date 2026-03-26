@@ -4,3 +4,4 @@ paper_code/dataset/** filter=lfs diff=lfs merge=lfs -text
 *.pt filter=lfs diff=lfs merge=lfs -text
 *.csv filter=lfs diff=lfs merge=lfs -text
 paper_code/model/LLa-VA-Med/LLaVA-Med-1.0.0/data/2023-05-10_* filter=lfs diff=lfs merge=lfs -text
+paper_code/model/LLa-VA-Med/Ours/checkpoint/latest_checkpoint/trainer_state.json filter=lfs diff=lfs merge=lfs -text
